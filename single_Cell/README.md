@@ -12,7 +12,7 @@ Clean folder layout with:
 
 ![SysBIO FAIRplex pipeline](diagram/sysbio_fairplex_pipeline.svg)
 
-## DiffEx policy
+## DiffEx configs:
 
 Pipeline configurable in `run_diffex_pipeline.py`:
 

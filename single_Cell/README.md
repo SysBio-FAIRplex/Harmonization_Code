@@ -38,13 +38,13 @@ This behavior is configured in `run_diffex_pipeline.py`:
 From repository root:
 
 ```bash
-python3 single_Cell_github_ready/run_diffex_pipeline.py
+python3 single_Cell/run_diffex_pipeline.py
 ```
 
 ## Run EDA PCA example
 
 ```bash
-python3 single_Cell_github_ready/EDA/pca_from_counts.py
+python3 single_Cell/EDA/pca_from_counts.py
 ```
 
 ## Diagram source
@@ -53,6 +53,6 @@ python3 single_Cell_github_ready/EDA/pca_from_counts.py
 - To render SVG:
 
 ```bash
-nf-metro render single_Cell_github_ready/diagram/sysbio_fairplex_pipeline.mmd -o single_Cell_github_ready/diagram/sysbio_fairplex_pipeline.svg --theme light
+nf-metro render single_Cell/diagram/sysbio_fairplex_pipeline.mmd -o single_Cell/diagram/sysbio_fairplex_pipeline.svg --theme light
 ```
 

@@ -1,0 +1,71 @@
+%%metro title: SysBIO FAIRplex Pipeline
+%%metro style: light
+%%metro legend: bl
+%%metro line_order: definition
+
+%%metro line: core | Harmonization + Analysis | #0f62fe
+%%metro line: qc | Quality Control | #ff7d00
+
+%%metro grid: sources | 0,0
+%%metro grid: pseudobulk | 1,0,1,2
+%%metro grid: process | 4,0
+%%metro grid: quality | 5,0,1,2
+%%metro grid: diffex | 8,0
+%%metro grid: outputs | 9,0
+
+graph LR
+    subgraph sources [1) Cohorts]
+        %%metro entry: left | core
+        %%metro exit: right | core
+        amp_ra_sle[AMP-RA/SLE]
+        amp_cmd[AMP-CMD]
+        amp_pd[AMP-PD]
+        amp_ad[AMP-AD]
+        intake[Intake]
+        amp_ra_sle -->|core| intake
+        amp_cmd -->|core| intake
+        amp_pd -->|core| intake
+        amp_ad -->|core| intake
+    end
+
+    subgraph pseudobulk [2) Pseudobulk]
+        %%metro entry: left | core
+        %%metro exit: right | core
+        pb[Pseudobulk]
+        intake -->|core| pb
+    end
+
+    subgraph process [3) Harmonize]
+        %%metro entry: left | core
+        %%metro exit: right | core,qc
+        harmonize[Harmonize]
+        pb -->|core| harmonize
+        harmonize -->|core| qc_gate
+    end
+
+    subgraph quality [4) QC]
+        %%metro entry: left | qc
+        %%metro exit: right | core,qc
+        qc_gate[Pre-QC]
+        filter_qc[Filter]
+        qc_gate -->|qc| filter_qc
+    end
+
+    subgraph diffex [5) DiffEx]
+        %%metro entry: left | core,qc
+        de[DiffEx]
+        filter_qc -->|core| de
+    end
+
+    subgraph outputs [6) Outputs]
+        %%metro entry: left | core
+        de_out[DE]
+        volcano[Volcano plots]
+        pca[PCA]
+        qc_out[QC]
+        de -->|core| de_out
+        de -->|core| volcano
+        filter_qc -->|core| pca
+        filter_qc -->|qc| qc_out
+    end
+

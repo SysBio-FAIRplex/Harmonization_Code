@@ -1,4 +1,4 @@
-# SysBIO FAIRplex Single Cell (GitHub Ready)
+# SysBIO FAIRplex Single Cell
 
 Clean folder layout with:
 

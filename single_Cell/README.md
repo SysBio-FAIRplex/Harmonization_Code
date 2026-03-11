@@ -21,6 +21,10 @@ flowchart LR
     D --> F4["QC"]
 ```
 
+## Pipeline map (Rendered nf-metro SVG)
+
+![SysBIO FAIRplex pipeline](diagram/sysbio_fairplex_pipeline.svg)
+
 ## DiffEx policy
 
 The main script uses `case_control` and currently allows:
